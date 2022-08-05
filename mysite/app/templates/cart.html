@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ranga Jewellers</title>
+    <link rel="icon" sizes="192x192" href="images/favilogo.png" />
+    <link rel="apple-touch-icon" href="images/favilogo.png" />
+     <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+></script>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, shrink-to-fit=no"
+    />
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Helvetica:Light|Arial|Poppins:Light|Raleway|Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/w3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/profile.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome/css/all.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/common.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/index.css' %}"
+    />
+    <style>
+      body {
+  
+        margin: 0;
+        background: url("{% static 'images/shop.jpg' %}");
+        background-position: center;
+        background-size: 40%;
+      }
+      .header {
+        padding-top: 200px;
+        display: flex;
+        justify-content: center;
+      }
+      .header ul {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+      }
+      .header ul li {
+        list-style-type: none;
+      }
+      .container {
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+      }
+      .container .wrapper {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+      }
+      .container .wrapper .box {
+        display: flex;
+        justify-content: space-between;
+        width: 900px;
+        height: 300px;
+        margin: 30px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+          rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        text-align: center;
+        align-items: center;
+      }
+      .container .wrapper .box .imgContainer {
+        width: 300px;
+        height: 90%;
+      }
+
+      /* CSS */
+      .button-44 {
+        background: #e62143;
+        border-radius: 11px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-family: Mija, -apple-system, BlinkMacSystemFont, Roboto,
+          "Roboto Slab", "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+        font-size: 1.15em;
+        font-weight: 700;
+        justify-content: center;
+        line-height: 33.4929px;
+        padding: 0.8em 1em;
+        text-align: center;
+        text-decoration: none;
+        text-decoration-skip-ink: auto;
+        text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px;
+        text-underline-offset: 1px;
+        transition: all 0.2s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 100%;
+        word-break: break-word;
+        border: 0;
+      }
+
+      .button-44:active,
+      .button-44:focus {
+        border-bottom-style: none;
+        border-color: #dadada;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 3px 3px inset;
+        outline: 0;
+      }
+
+      .button-44:hover {
+        border-bottom-style: none;
+        border-color: #dadada;
+      }
+      .imgc {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .imgc img{
+        width: 100px;
+        height: 120px;
+        position: absolute !important;   
+        left: -19px;     
+      }    
+    </style>
+  </head>
+  <body>
+    {% if message %}
+      {{ message | safe }}
+    {% endif %}
+    <div
+      id="goTopBtn"
+      onclick="gotoTop();return false;"
+      class="animated faster"
+    >
+      <i class="fas fa-angle-up"></i>
+    </div>
+    <div class="nav-bar">
+      <div class="row">
+        <div class="options">
+          <i
+          class="fas fa-bars"
+          id="bars"
+          onclick="dropDownMenuControl();return false;"
+        ></i>
+        </div>
+        <div class="logo">
+          <img
+            src="{% static '/images/logo_final.jpg' %}"
+            onclick="window.location='/home';"
+          />
+        </div>
+        <div class="menu">
+          <p>
+            <a href="/home">Home</a>
+          </p>
+          <p>
+            <a href="/jewels">Shop</a>
+          </p>
+          <p><a href="/collections">Collections</a></p>
+          <p><a href="/about">About</a></p>
+          <p><a href="/contact">Contact</a></p>
+          {% if status %}
+          <p><a href="{% url 'logout' %}">Logout</a></p>
+          <p><a href="{% url 'profile' %}">Profile</a></p>
+          <p><a href="{% url 'orderHistory' %}">My Orders</a></p>
+          <p><a href="{% url 'cart' %}" ><i class="fas fa-shopping-bag" ></i></a></p>
+          {% else %}
+          <p><a href="{% url 'login' %}">Login/Signup</a></p>
+          {% endif %}
+        </div>
+        
+        <div class="options">
+          {% if img %}
+          <div class="imgc">
+            <a href="{% url 'profile' %}">
+              <img src="{{ img }}"
+            /></a>
+          </div>
+          {% else %}
+          <a  href="#"><i class="far fa-user-circle" id="user"></i></a>
+          {% endif %}
+
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown animated fast">
+      <a class="nav-links" href="/home"><i class="fas fa-home"></i>Home</a>
+      <a class="nav-links" href="/jewels"
+        ><i class="fas fa-shopping-bag"></i>Shop</a
+      >
+      <a class="nav-links" href="/collections"><i class="fas fa-image"></i> Collections</a>
+      <a class="nav-links" href="/about"><i class="fas fa-info"></i> About</a>
+      <a class="nav-links" href="/contact"><i class="fas fa-phone"></i> Contact</a>
+      {% if status %}
+          <p><a class="nav-links" href="{% url 'logout' %}" ><i class="fas fa-sign-out-alt"></i>Logout</a></p>
+          <p><a class="nav-links" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>Profile</a></p>
+          <p><a class="nav-links" href="{% url 'orderHistory' %}"><i class="fas fa-user-circle"></i>My Orders</a></p>
+          {% else %}
+          <p><a class="nav-links" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login/Signup</a></p>
+      {% endif %}
+    </div>
+    
+    
+    
+    <section class="h-100" >
+      <div class="container h-100 py-8">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-15">
+    
+            <!-- <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+              <div>
+                <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                      class="fas fa-angle-down mt-1"></i></a></p>
+              </div>
+            </div> --><br><br><br><br>
+    
+            
+            {% for each in cartdata %}
+            <div class="card rounded-5 mb-3" style="width:110%;align-items: center;">
+              <div class="card-body p-8" style="width:100%;align-items: center;">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                    src="{{ each.icurl }}" width="100px" height="100px" alt="Cotton T-shirt">
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{ each.icname }}</p>
+                  
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <!-- <button class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <i class="fas fa-minus"></i>
+                    </button> -->
+                    <input id="{{each.id}}" cart-id="each.id" min="1" max="3" name="quantity" value="{{each.quantity}}" type="number"
+                      class="form-control form-control" onChange="updateQuantity(value, `{{each.id}}`)" style="width:70px;" />
+    
+                    <!-- <button class="btn btn-link px-2"
+                      onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                      <i class="fas fa-plus"></i>
+                    </button> -->
+                  </div>
+                  <div class="col-md-3 col-lg-2 col-xl-3 offset-lg-1">
+                    <h5 class="mb-0">{{ each.icprice }}</h5>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="#!" class="text-danger" ><i class="fas fa-trash fa-lg" onClick="deleteCart(`{{ each.id }}`)"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+           
+<!--     
+            <div class="card mb-4">
+              <div class="card-body p-4 d-flex flex-row">
+                <div class="form-outline flex-fill">
+                  <input type="text" id="form1" class="form-control form-control-lg" />
+                  <label class="form-label" for="form1">Discound code</label>
+                </div>
+                <button type="button" class="btn btn-outline-warning btn-lg ms-3">Apply</button>
+              </div>
+            </div> -->
+    
+            <!-- <div class="card">
+              <div class="card-body">
+                <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+              </div>
+            </div> -->
+            {% if isNoItem %}
+            <form action="{% url 'charge' %}" method="post" style="width:110%;align-items: center;">
+              {% csrf_token %}
+              <script  src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
+                  data-key="{{ key }}"
+                  data-description="Jewel payment for {{ CurrentUser}}"
+                  data-amount="{{ CheckoutBill }}"
+                  data-locale="auto">
+              </script>
+              {% else%}
+                <h4>Please add items to cart !</h4>
+              {% endif %}
+          </form>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{% static 'js/carousel.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+      function updateQuantity(value, cartid){
+       
+        $.ajax({
+        type:"GET",
+        url:"/updateCart/",
+        data:{
+              cart_id :  cartid,
+              quantity : value,
+        },
+        success: function(data)
+        {
+          alert(data);
+          location.reload(true);
+        }
+      })
+      }
+    </script>
+    <script>
+      function deleteCart(cart_id){
+        $.ajax({
+          type:"GET",
+          url:'/deleteCart/',
+          data:{
+            cart_id : cart_id
+          },
+          success: function(data){
+            alert("Deleted Successfully");
+            location.reload(true);
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

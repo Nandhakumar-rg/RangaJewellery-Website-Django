@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Shop - Ranga Jewellers</title>
+    {% load static %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/masonry/">
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="icon" sizes="192x192" href="images/favilogo.png" />
+    <link rel="apple-touch-icon" href="images/favilogo.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Helvetica|Arial|Poppins:Light|Raleway|Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/w3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome/css/all.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/common.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/shop.css' %}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+       .imgc {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .imgc img{
+        width: 100px;
+        height: 120px;
+        position: absolute !important;   
+        left: -19px;     
+      }    
+      .container .row .extra{
+        overflow-x: scroll;
+        margin-top: auto;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container .row .extra .col {
+        min-width: 300px;
+        max-width: 300px;
+
+        border: 8px solid #333;
+        border-radius: 10px;
+        text-align: center;
+        contain: content;
+        margin: 10px;
+        padding: 40px;
+      }
+      .container .row .extra .col img {
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 120px;
+        max-height: 120px;
+        object-fit: fill;
+      }
+      .container .row .extra .col .info {
+        background: rgba(33, 33, 33, 0.2);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        padding: 4px;
+      }
+      .container .row .extra .col .actions {
+        width: 100%;
+    
+        justify-content: center;
+        align-items: center;
+      }
+      .filter1  {
+        display: none;
+      }
+      .filter2  {
+        display: none;
+      }
+      .filter3  {
+        display: none;
+      }
+      .filter4 {
+        display: none;
+      }
+      #all{
+        display: none;
+      }
+      #bangle{
+        display: none !important;
+      }
+      #chain{
+        display: none !important;
+      }
+      #ring{
+        display: none !important;
+      }
+      #sring{
+        display: none !important;
+      }
+      #anklets{
+        display: none !important;
+      }
+      #schain{
+        display: none !important;
+      }
+      #bracelts{
+        display: none !important;
+      }
+      #pchain{
+        display: none !important;
+      }
+      #pring{
+        display: none !important;
+      }
+      #dbracelts{
+        display: none !important;
+      }
+      #dchain{
+        display: none !important;
+      }
+      #dring{
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="goTopBtn"
+      onclick="gotoTop();return false;"
+      class="animated faster"
+    >
+      <i class="fas fa-angle-up"></i>
+    </div>
+    <div class="nav-bar">
+      <div class="row">
+        <div class="options">
+          <i
+          class="fas fa-bars"
+          id="bars"
+          onclick="dropDownMenuControl();return false;"
+        ></i>
+        </div>
+        <div class="logo">
+          <img
+            src="{% static '/images/logo_final.jpg' %}"
+            onclick="window.location='/home';"
+          />
+        </div>
+        <div class="menu">
+          <p>
+            <a href="/home">Home</a>
+          </p>
+          <p>
+            <a href="/jewels">Shop</a>
+          </p>
+          <b><p><a href="#">Collections</a></p></b>
+          <p><a href="/about">About</a></p>
+          <p><a href="/contact">Contact</a></p>
+          {% if status %}
+          <p><a href="{% url 'logout' %}">Logout</a></p>
+          <p><a href="{% url 'profile' %}">Profile</a></p>
+          <p><a href="{% url 'orderHistory' %}">My Orders</a></p>
+          <p><a href="{% url 'cart' %}" ><i class="fas fa-shopping-bag" ></i></a></p>
+          {% else %}
+          <p><a href="{% url 'login' %}">Login/Signup</a></p>
+          {% endif %}
+        </div>
+        
+        <div class="options">
+          {% if img %}
+          <div class="imgc">
+            <a href="{% url 'profile' %}">
+              <img src="{{ img }}"
+            /></a>
+          </div>
+          {% else %}
+          <a  href="#"><i class="far fa-user-circle" id="user"></i></a>
+          {% endif %}
+
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown animated fast">
+      <a class="nav-links" href="/home"><i class="fas fa-home"></i> Home</a>
+      <a class="nav-links" href="/jewels"
+        ><i class="fas fa-shopping-bag"></i><b> Shop</b></a
+      >
+      <a class="nav-links" href="#"><i class="fas fa-image"></i> Collections</a>
+      <a class="nav-links" href="/about"><i class="fas fa-info"></i> About</a>
+      <a class="nav-links" href="/contact"><i class="fas fa-phone"></i> Contact</a>
+      {% if status %}
+          <p><a class="nav-links" href="{% url 'logout' %}" ><i class="fas fa-sign-out-alt"></i>Logout</a></p>
+          <p><a class="nav-links" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i>Profile</a></p>
+          <p><a class="nav-links" href="{% url 'orderHistory' %}"><i class="fas fa-user-circle"></i>My Orders</a></p>
+          <p><a href="{% url 'cart' %}" ><i class="fas fa-shopping-bag" ></i></a></p>
+          {% else %}
+          <p><a class="nav-links" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login/Signup</a></p>
+      {% endif %}
+    </div>
+
+    
+
+
+    <div class="header">
+      <h1>COLLECTIONS</h1>
+      <p>The Art Of Jewel</p>
+    </div>
+
+    <main class="container py-5">
+      
+    
+      <div class="row" data-masonry='{"percentPosition": true }'>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="10px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><img width="100%" height="100%" src="https://www.hazoorilaljewellers.com/wp-content/uploads/2022/02/03-1.jpg"/></svg>
+    
+            <div class="card-body">
+              <h5 class="card-title">ART OF GOLD</h5>
+              <p class="card-text">"Wear a fabulous smile, great jewellery and know that you are totally and utterly in control"</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card p-3">
+            <figure class="p-3 mb-0">
+              <blockquote class="blockquote">
+                <p>Jewellery is like the perfect spice-it always complements what's alredy there.</p>
+              </blockquote>
+              
+            </figure>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="10px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><img width="100%" height="100%" src="https://www.hazoorilaljewellers.com/wp-content/uploads/2022/02/01-1.jpg" /></svg>
+    
+            <div class="card-body">
+              <h5 class="card-title">ART OF DIAMOND</h5>
+              <p class="card-text">Jewellry is a very personal thing... it should tell a story about the person who's wearing it.</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4" >
+          <div class="card bg-primary text-white text-center p-3" >
+            <figure class="mb-0">
+              <blockquote class="blockquote">
+                <p >Life isn't perfect but your jewellery can be.</p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0 text-white">
+                 <cite title="Source Title"></cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Quote</h5>
+              <p class="card-text">You're not fully dressed untill you sparkle!</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <!-- <div class="card">
+            <svg class="bd-placeholder-img card-img" width="100%" height="10px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><img width="100%" height="100%" src="https://i.pinimg.com/736x/2c/83/94/2c8394c47dc186f53206cac4ccffa49e.jpg"/></svg>
+    
+          </div> -->
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Quote</h5>
+              <p class="card-text">Surround yourself with diamonds, not negativity</p>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <center><h5 class="card-title">JEWELLERY</h5>
+              <p class="card-text">All you need is love. But a little jewellery never hurt anybody.</p></center>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </main>
+    
+    
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    
+          <script async src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+    
+
+   <!-- #footer -->
+   <div class="footer" style="background-color:#c4c4c4 ;">
+    <footer class="py-1">
+      <div class="row" style="display:flex ;">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Categories</h5>
+          <ul class="nav flex-column" style="color: rgba(242, 246, 247, 0.5);">
+            <li class="nav-item mb-2" style="color: rgba(242, 246, 247, 0.5);"><a href="#" class="nav-link p-0 text-muted" style="color: rgba(242, 246, 247, 0.5);">Nose Pins</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Ear Rings</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Loose Diamonds</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Chains</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Finger Rings</a></li>
+          </ul>
+        </div>
+  &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14;
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Collections</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Valentine</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Anniversary</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Wedding</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Birthday</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Valentines</a></li>
+          </ul>
+        </div>
+        &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14;
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Shop</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Collections</a></li>
+            
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+          </ul>
+        </div>
+        &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14; &emsp14;
+        <div class="col">
+          <h3>Our Store</h3>
+          <p style="color:black;">Shop no.1/442/2,<br>Latteri main road,<br>Latteri, Vellore-632202</p>
+          <a href="/contact" id="store"><i class="fas fa-map-marker-alt"></i>&nbsp; Store Locator</a>
+      </div>
+      
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+        <p style="color:black;">&copy; 2022 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+      
+    </footer>
+  </div>
+ 
+   
+  <script src="{% static 'js/carousel.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+   
+     
+  </body>
+</html>

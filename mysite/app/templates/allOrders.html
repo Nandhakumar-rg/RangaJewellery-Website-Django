@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>All placed orders</title>
+    <link rel="icon" sizes="192x192" href="images/favilogo.png" />
+    <link rel="apple-touch-icon" href="images/favilogo.png" />
+     <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+></script>
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, shrink-to-fit=no"
+    />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Helvetica:Light|Arial|Poppins:Light|Raleway|Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/w3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/profile.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome/css/all.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/common.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/index.css' %}"
+    />
+    <style>
+        body {
+  
+        margin: 0;
+        background: url("{% static 'images/shop.jpg' %}");
+        background-position: center;
+        background-size: 40%;
+        }
+      .header {
+        padding-top: 200px;
+        display: flex;
+        justify-content: center;
+      }
+      .header ul {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+      }
+      .header ul li {
+        list-style-type: none;
+      }
+      .container {
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+      }
+      .container .wrapper {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+      }
+      .container .wrapper .box {
+        display: flex;
+        justify-content: space-between;
+        width: 900px;
+        height: 300px;
+        margin: 30px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+          rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        text-align: center;
+        align-items: center;
+      }
+      .container .wrapper .box .imgContainer {
+        width: 300px;
+        height: 90%;
+      }
+
+      /* CSS */
+      .button-44 {
+        background: #e62143;
+        border-radius: 11px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-family: Mija, -apple-system, BlinkMacSystemFont, Roboto,
+          "Roboto Slab", "Droid Serif", "Segoe UI", system-ui, Arial, sans-serif;
+        font-size: 1.15em;
+        font-weight: 700;
+        justify-content: center;
+        line-height: 33.4929px;
+        padding: 0.8em 1em;
+        text-align: center;
+        text-decoration: none;
+        text-decoration-skip-ink: auto;
+        text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px;
+        text-underline-offset: 1px;
+        transition: all 0.2s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 100%;
+        word-break: break-word;
+        border: 0;
+      }
+
+      .button-44:active,
+      .button-44:focus {
+        border-bottom-style: none;
+        border-color: #dadada;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 3px 3px inset;
+        outline: 0;
+      }
+
+      .button-44:hover {
+        border-bottom-style: none;
+        border-color: #dadada;
+      }
+      .imgc {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .imgc img{
+        width: 100px;
+        height: 120px;
+        position: absolute !important;   
+        left: -19px;     
+      }    
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/admincontrol/">ADMIN-HOME</a>
+                </li>
+                <li class="nav-item">
+                
+                    <p><a class="nav-link" href="/logout">LOGOUT</a></p>
+                
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+    <section class="h-100" >
+      <div class="container h-100 py-8">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            
+          <div class="col-15"><br><br><br><br>            
+            {% for each in allorderdata %}
+            <div class="card rounded-5 mb-3" style="width:110%;align-items: center;">
+              <div class="card-body p-8" style="width:100%;align-items: center;">
+                <div class="row d-flex justify-content-between align-items-center">
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                        {% for data in allorderUserdata %}
+                            {% if each.id == data.id %}
+                            <img src="{{ data.user_pic }}" width="100px" height="100px" alt="{{ each.uname }}">
+                            <b style="display: block;">Customer Image</b>
+                            {% endif %}
+                        {% endfor %}
+                  </div>
+                  <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img
+                    src="{{ each.ocurl }}" width="100px" height="100px" alt="{{ each.uname }}">
+                    <b style="display: block;">Product Image</b>
+                </div>
+
+                  <div class="col-md-1 col-lg-1 col-xl-3">
+                    <h6 class="mb-0"><b> Customer name: </b>{{ each.uname }}</h6>
+                    <h6 class="mb-0"><b> Type and Quantity: </b>{{ each.ocname }} , {{ each.quantity }}</h6>
+                    <h6 class="mb-0"><b> Amount Paid: </b>{{ each.ocprice }}</h6>
+                  </div>
+                  <!-- <div class="col-md-2 col-lg-2 col-xl-1 d-flex">
+                    <h5> <b style="font-size: medium;"> Quantity: </b>{{ each.quantity }}</h5>
+                  </div> -->
+                  <!-- <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
+                    <h6 class="mb-0"><b> Amount Paid: </b>{{ each.ocprice }}</h6>
+                  </div> -->
+                  <div class="col-md-4 col-lg-1 col-xl-2 text-end">
+                    <p><b>Given Address</b></p>
+                   {{ each.address }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            {% if isTotalOrders %}
+              <center>  <h5>{{ isTotalOrders }}  orders in total.</h5>  </center>
+              {% else%}
+                <center><h4>Zero Orders!</h4></center>
+              {% endif %}
+          </form>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Shop - Ranga Jewellers</title>
+    {% load static %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" sizes="192x192" href="images/favilogo.png" />
+    <link rel="apple-touch-icon" href="images/favilogo.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Helvetica|Arial|Poppins:Light|Raleway|Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/w3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome/css/all.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/common.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/shop.css' %}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+      .container {
+        overflow-x: scroll;
+        margin-top: auto;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container .col {
+        min-width: 300px;
+        max-width: 300px;
+
+        border: 8px solid #333;
+        border-radius: 10px;
+        text-align: center;
+        contain: content;
+        margin: 10px;
+        padding: 40px;
+      }
+      .container .col img {
+        width: 120px;
+        object-fit: fill;
+      }
+      .info {
+        background: rgba(33, 33, 33, 0.2);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        padding: 4px;
+      }
+      .actions {
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+      }
+      .filter1  {
+        display: none;
+      }
+      .filter2  {
+        display: none;
+      }
+      .filter3  {
+        display: none;
+      }
+      .filter4 {
+        display: none;
+      }
+      #all{
+        display: none;
+      }
+      #bangle{
+        display: none;
+      }
+      #chain{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="filter-bar">
+      <p onclick="showHideFilters()"><i class="fas fa-filter"></i> Filters</p>
+      <p onclick="clearAllFilters()"><i class="fas fa-times"></i> Clear All</p>
+    </div>
+    <div
+      id="goTopBtn"
+      onclick="gotoTop();return false;"
+      class="animated faster"
+    >
+      <i class="fas fa-angle-up"></i>
+    </div>
+    <div class="nav-bar">
+      <div class="row">
+        <div class="logo">
+          <img
+            src="{% static '/images/logo_final.jpg' %}"
+            onclick="window.location='/Home';"
+          />
+        </div>
+        <div class="menu">
+          <p><a href="/home">Home</a></p>
+          <p>
+            <b><a href="#">Shop</a></b>
+          </p>
+          <p><a href="#">Collections</a></p>
+          <p><a href="#">About</a></p>
+          <p><a href="#">Contact</a></p>
+          {% if status %}
+          <p><a href="{% url 'logout' %}">Logout</a></p>
+          {% else %}
+          <p><a href="{% url 'login' %}">Login/Signup</a></p>
+          {% endif %}
+        </div>
+        <div class="options">
+          <i
+            class="fas fa-bars"
+            id="bars"
+            onclick="dropDownMenuControl();return false;"
+          ></i>
+          {% if img %}
+          <img
+            src="{{ img.url }}"
+            width="10px"
+            height="10px"
+            style="object-fit: contain"
+          />
+          {% else %}
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            width="10px"
+            height="10px"
+            style="object-fit: contain"
+          />
+          {% endif %}
+          <i
+            class="fas fa-shopping-bag"
+            onclick="showHideCartList();return false;"
+          ></i>
+          <span class="badge" onclick="showHideCartList();return false;"
+            >2</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown animated fast">
+      <a class="nav-links" href="/home"><i class="fas fa-home"></i> Home</a>
+      <a class="nav-links" href="#"
+        ><i class="fas fa-shopping-bag"></i><b> Shop</b></a
+      >
+      <a class="nav-links" href="#"><i class="fas fa-image"></i> Collections</a>
+      <a class="nav-links" href="#"><i class="fas fa-info"></i> About</a>
+      <a class="nav-links" href="#"><i class="fas fa-phone"></i> Contact</a>
+    </div>
+
+    <div class="cart-list animated faster slideInRight">
+      <div class="row">
+        <div class="item">
+          <div class="img-holder"></div>
+          <div class="info">
+            <p>Bangle<i class="far fa-trash-alt"></i></p>
+            <p>h3638fgf678</p>
+            <br />
+            <p>x2</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-holder"></div>
+          <div class="info">
+            <p>Bangle<i class="far fa-trash-alt"></i></p>
+            <p>h3638fgf678</p>
+            <br />
+            <p>x2</p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="img-holder"></div>
+          <div class="info">
+            <p>Bangle<i class="far fa-trash-alt"></i></p>
+            <p>h3638fgf678</p>
+            <br />
+            <p>x2</p>
+          </div>
+        </div>
+        <button
+          class="view-cart"
+          onclick="window.location.href = 'cart.html';return false;"
+        >
+          View Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="header">
+      <h1>Store</h1>
+      <p>Get best of our products here</p>
+    </div>
+
+    <div class="shop-holder">
+      <div class="main-row">
+        <div class="filter-side animated fast">
+          
+            <h3 class="heading1"><input type="checkbox" id="cb1" onclick="filter1()" />Categories</h3>
+            <div class="filter1" id="filter1">
+            <p><input type="checkbox" id="al" onclick="all()">All</p>
+            <p><input type="checkbox" id="bang" onclick="bangles()">Bangles</p>
+            <p><input type="checkbox" id="cha" onclick="chain()">Chains</p>
+
+            <br />
+          </div>
+          
+            <h3 class="heading2"><input type="checkbox" id="cb2"  onclick="filter2()"/>Gender</h3>
+            <div class="filter2"  id="filter2">
+            <p><i class="fas fa-check"></i>All</p>
+            <p><i class="fas fa-check"></i>Male</p>
+            <p><i class="fas fa-check"></i>Female</p>
+            <br />
+          </div>
+        
+            <h3 class="heading3"><input type="checkbox" id="cb3" onclick="filter3()"/>Karatage</h3>
+              <div class="filter3"  id="filter3">
+            <p><i class="fas fa-check"></i>All</p>
+            <p><i class="fas fa-check"></i>14K</p>
+            <p><i class="fas fa-check"></i>18K</p>
+            <p><i class="fas fa-check"></i>22K</p>
+            <p><i class="fas fa-check"></i>Platinum</p>
+            <br />
+          </div>
+        
+            <h3 class="heading4"><input type="checkbox" id="cb4" onclick="filter4()"/>Grammage</h3>
+            <div class="filter4"  id="filter4">
+            <p><i class="fas fa-check"></i>All</p>
+            <p><i class="fas fa-check"></i>0 - 25g</p>
+            <p><i class="fas fa-check"></i>26 - 50g</p>
+            <p><i class="fas fa-check"></i>51 - 100g</p>
+            <p><i class="fas fa-check"></i>Above 100g</p>
+            <br />
+          </div>
+        </div>
+        <div class="product-side">
+          <div class="sort-row">
+            <div>
+              <button>Clear All</button>
+              <button>New Arrivals</button>
+            </div>
+            <div>
+              <button>Price: Low to High</button>
+              <button>Price: High to Low</button>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row wrapper col-md-12">
+              <!-- all -->
+              
+              <!-- bangle -->
+              <span id="bangle" style=" display: flex;flex-wrap: wrap;">
+                {% for b in bangle %}
+  
+                <div class="col" id="dynamic">
+                  <div class="info">
+                    <h6 id="dynamictitle">{{ b.jname }}</h6>
+                  </div>
+                    <img
+                      src="{{ b.url }}"
+                      alt="{{ b.jname }}"
+                      id="dynamicimg"
+                    />
+                    <p class="price">PRICE : {{ b.price}}</p>
+                    <div class="actions">
+                      <button class="btn">View More</button>
+                      <button class="btn" id="cart" class="cart" onclick="cart()" pro-id="{{ b.id }}">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+  
+                  {% endfor %}
+                </span>
+                <!-- chain -->
+                <span id="chain" style="display: flex;flex-wrap: wrap;">
+                  {% for c in chain %}
+    
+                  <div class="col" id="dynamic">
+                    <div class="info">
+                      <h6 id="dynamictitle">{{ c.jname }}</h6>
+                    </div>
+                      <img
+                        src="{{ c.url }}"
+                        alt="{{ c.jname}}"
+                        id="dynamicimg"
+                      />
+                      <p class="price">PRICE : {{ c.price}}</p>
+                      <div class="actions">
+                        <button class="btn">View More</button>
+                        <button class="btn" id="cart" class="cart" onclick="cart()" >
+                          <i class="fas fa-cart-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+    
+                    {% endfor %}
+                  </span>
+                  <span id="all" style="display: flex;flex-wrap: wrap;">
+                    {% for a in all %}
+      
+                    <div class="col" id="dynamic">
+                      <div class="info">
+                        <h6 id="dynamictitle">{{ a.jname }}</h6>
+                      </div>
+                        <img
+                          src="{{ a.url }}"
+                          alt="{{ a.jname}}"
+                          id="dynamicimg"
+                        />
+                        <p class="price">PRICE : {{ a.price}}</p>
+                        <div class="actions">
+                          <button class="btn">View More</button>
+                          <button class="btn" id="cart" class="cart" onclick="cart()" >
+                            <i class="fas fa-cart-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+      
+                      {% endfor %}
+                    </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+        <div class="row wrapper col-md-12  ">
+          {% for a in as %}
+          
+          <div class="col">
+            <h6>{{ a.jname }}</h6>
+            <img src="{{ a.url }}" alt = "{{ a.jname}}">
+            <p class="price">PRICE : {{ a.price}}</p>
+          </div>
+          {% endfor %}
+        </div>
+    </div>  -->
+
+    <div class="footer">
+      <div class="row">
+        <div class="col">
+          <h3>Categories</h3>
+          <div class="sub">
+            <div class="box">
+              <p><a href="#">Nose Pins</a></p>
+              <p><a href="#">Ear Rings</a></p>
+              <p><a href="#">Mangalsutra</a></p>
+              <p><a href="#">Loose Diamonds</a></p>
+            </div>
+            <div class="box">
+              <p><a href="#">Chains</a></p>
+              <p><a href="#">Pendants</a></p>
+              <p><a href="#">Bangles</a></p>
+              <p><a href="#">Finger Rings</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="nest">
+            <h3>Collections</h3>
+            <p><a href="#">Valentine</a></p>
+            <p><a href="#">Anniversary</a></p>
+            <p><a href="#">Wedding</a></p>
+            <p><a href="#">Birthday</a></p>
+          </div>
+          <div class="nest">
+            <h3>Contacts</h3>
+            <p><i class="fas fa-at"></i> Email : ganesh.gg107@gmail.com</p>
+            <p><i class="fab fa-whatsapp"></i> +919445490152</p>
+            <p><i class="fas fa-phone"></i> +919443272288</p>
+            <div class="social">
+              <p>
+                <a href=""><i class="soc-icons fab fa-facebook-f"></i></a>
+              </p>
+              <p>
+                <a href=""><i class="soc-icons fab fa-instagram"></i></a>
+              </p>
+              <p>
+                <a href=""><i class="soc-icons fab fa-twitter"></i></a>
+              </p>
+              <p>
+                <a href=""><i class="soc-icons fab fa-youtube"></i></a>
+              </p>
+              <p>
+                <a href=""><i class="soc-icons fab fa-pinterest-p"></i></a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <h3>Our Store</h3>
+          <p>
+            Shop no.1/442/2,<br />Latteri Main road<br />Latteri, Vellore-632202
+          </p>
+          <a href="#" id="store"
+            ><i class="fas fa-map-marker-alt"></i>&nbsp; Store Locator</a
+          >
+        </div>
+      </div>
+      <div class="row">
+        <p id="copyright"></p>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/shop.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+    //   $(".filter1").change(function() {
+    //   if(this.checked) {
+    //     //Do stuff
+    //  }
+    // });
+    // var data = JSON.parse("{{ data|escapejs }}");
+      function filter1(){
+        if(document.getElementById('cb1').checked)
+        {
+          document.getElementById('filter1').style.display = 'inline-block';     
+      }
+        else
+        {
+          document.getElementById('filter1').style.display = 'none';
+          
+        }
+    }
+    function filter2(){
+      if(document.getElementById('cb2').checked)
+        {
+          document.getElementById('filter2').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter2').style.display = 'none';
+          
+        }
+    }
+    function filter3(){
+      if(document.getElementById('cb3').checked)
+        {
+          document.getElementById('filter3').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter3').style.display = 'none';
+          
+        }
+    }
+    function filter4(){
+      if(document.getElementById('cb4').checked)
+        {
+          document.getElementById('filter4').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter4').style.display = 'none';
+          
+        }
+    }
+
+    function bangles(){
+      document.getElementById("all").setAttribute("style","display:none;");
+      document.getElementById("chain").setAttribute("style","display:none;");
+      document.getElementById("bangle").setAttribute("style","display:inline-block;");
+    }
+    function chain(){
+      document.getElementById("all").setAttribute("style","display:none;");
+      document.getElementById("chain").setAttribute("style","display:inline-block;");
+      document.getElementById("bangle").setAttribute("style","display:none;");
+    }
+    function all(){
+      document.getElementById("all").setAttribute("style","display:inline-block;");
+      document.getElementById("chain").setAttribute("style","display:none;");
+      document.getElementById("bangle").setAttribute("style","display:none;");
+    }
+    
+    
+    </script>
+    <!-- <script>
+      function saveQuantity(quantity){
+      alert(quantity);  
+      }
+      </script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script type="text/javascript">
+     function cart(){
+     
+     var cartid;
+     cartid = $(this).attr("pro-id");
+     console.log(cartid)
+     $.ajax({
+       type:"GET",
+       url:"/datacart/",
+       data:{
+            p_id :  "bangle",
+       },
+       success: function(data)
+       {
+        alert(data)
+       }
+     })
+   }
+  </script>
+  </body>
+</html>

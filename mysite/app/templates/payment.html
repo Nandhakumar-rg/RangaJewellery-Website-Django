@@ -1,0 +1,25 @@
+<form action="{% url 'charge' %}" method="post">
+    {% csrf_token %}
+    
+    <h1>Orders page</h1>
+    <p>Buy for $39.00</p>
+    
+    <script  src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="{{ key }}"
+        data-description="First try"
+        data-amount="3900"
+        data-locale="auto">
+    </script>
+    
+</form>
+<!-- <h1>Buy for 5.00 Rs</h1>
+<form action="{% url 'charge' %}" method="post">
+    {% csrf_token %}
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ key }}"
+        data-description="Payment Gateway"
+        data-amount="500"
+        data-locale="auto">
+    </script>
+</form> -->

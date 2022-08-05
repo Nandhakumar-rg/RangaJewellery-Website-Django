@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Shop - Ranga Jewellers</title>
+    {% load static %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" sizes="192x192" href="images/favilogo.png" />
+    <link rel="apple-touch-icon" href="images/favilogo.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Helvetica|Arial|Poppins:Light|Raleway|Montserrat"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/w3.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/animate.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'fontawesome/css/all.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/common.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'styles/shop.css' %}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+     
+       .imgc {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .imgc img{
+        width: 100px;
+        height: 120px;
+        position: absolute !important;   
+        left: -19px;     
+      }    
+      .container .row .extra{
+        overflow-x: scroll;
+        margin-top: auto;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container .row .extra .col {
+        min-width: 300px;
+        max-width: 300px;
+
+        border: 8px solid #333;
+        border-radius: 10px;
+        text-align: center;
+        contain: content;
+        margin: 10px;
+        padding: 40px;
+      }
+      .container .row .extra .col img {
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 120px;
+        max-height: 120px;
+        object-fit: fill;
+      }
+      .container .row .extra .col .info {
+        background: rgba(33, 33, 33, 0.2);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        padding: 4px;
+      }
+      .container .row .extra .col .actions {
+        width: 100%;
+    
+        justify-content: center;
+        align-items: center;
+      }
+      .filter1  {
+        display: none;
+      }
+      .filter2  {
+        display: none;
+      }
+      .filter3  {
+        display: none;
+      }
+      .filter4 {
+        display: none;
+      }
+      #all{
+        display: none;
+      }
+      #bangle{
+        display: none;
+      }
+      #chain{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+          <ul class="navbar-nav mr-auto">
+              
+              
+              <li class="nav-item">
+                  <a class="nav-link" href="/admincontrol/">ADMIN-HOME</a>
+              </li>
+              <li class="nav-item">
+                
+                <p><a class="nav-link" href="/login">LOGOUT</a></p>
+            
+            </li>
+          </ul>
+          
+      </div>
+  </nav>
+    
+
+
+    <div class="header">
+      <h1>USERS</h1>
+      
+    </div>
+
+    <div class="shop-holder">
+      <div class="main-row">
+        
+        <div class="product-side">
+          <!-- <div class="sort-row">
+            <div>
+              <button>Clear All</button>
+              <button>New Arrivals</button>
+            </div>
+            <div>
+              <button>Price: Low to High</button>
+              <button>Price: High to Low</button>
+            </div>
+          </div> -->
+          <div class="container">
+            <div class="row wrapper col-md-16">
+              <span class="extra" id="bangle" style=" display: flex;flex-wrap: wrap;">
+                {% for b in bangle %}
+  
+                <div class="col" id="dynamic">
+                  <div class="info">
+                    <h6 id="dynamictitle">{{ b.jname }}</h6>
+                  </div>
+                    <img
+                      src="{{ b.url }}"
+                      alt="{{ b.jname }}"
+                      id="dynamicimg"
+                    />
+                    <p class="price">PRICE : {{ b.price}}</p>
+                    <div class="actions">
+                      <button class="btn">DELETE </button>
+                     
+                    </div>
+                  </div>
+  
+                  {% endfor %}
+                </span>
+               
+                <span class="extra" id="chain" style="display: flex;flex-wrap: wrap;">
+                  {% for c in chain %}
+    
+                  <div class="col" id="dynamic">
+                    <div class="info">
+                      <h6 id="dynamictitle">{{ c.jname }}</h6>
+                    </div>
+                      <img
+                        src="{{ c.url }}"
+                        alt="{{ c.jname}}"
+                        id="dynamicimg"
+                      />
+                      <p class="price">PRICE : {{ c.price}}</p>
+                      <div class="actions">
+                        <button class="btn">DELETE</button>
+                       
+                      </div>
+                    </div>
+    
+                    {% endfor %}
+                  </span>
+
+                  <span class="extra" id="all" style="display: flex;flex-wrap: wrap;" >
+                    {% for a in all %}
+                    <div class="col" id="dynamic">
+                      <div class="info">
+                        <h6 id="dynamictitle">{{ a.jname }}</h6>
+                      </div>
+                        <img
+                          src="{{ a.url }}"
+                          alt="{{ a.jname}}"
+                          id="dynamicimg"
+                        />
+                        <p class="price">PRICE : {{ a.price}}</p>
+                        <div class="actions">
+                          <button class="btn">DELETE</button>
+                          
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+  
+ 
+   
+  <script src="{% static 'js/carousel.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+      integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+    //   $(".filter1").change(function() {
+    //   if(this.checked) {
+    //     //Do stuff
+    //  }
+    // });
+    // var data = JSON.parse("{{ data|escapejs }}");
+      function filter1(){
+        if(document.getElementById('cb1').checked)
+        {
+          document.getElementById('filter1').style.display = 'inline-block';     
+      }
+        else
+        {
+          document.getElementById('filter1').style.display = 'none';
+          
+        }
+    }
+    function filter2(){
+      if(document.getElementById('cb2').checked)
+        {
+          document.getElementById('filter2').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter2').style.display = 'none';
+          
+        }
+    }
+    function filter3(){
+      if(document.getElementById('cb3').checked)
+        {
+          document.getElementById('filter3').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter3').style.display = 'none';
+          
+        }
+    }
+    function filter4(){
+      if(document.getElementById('cb4').checked)
+        {
+          document.getElementById('filter4').style.display = 'inline-block';     
+        }
+        else
+        {
+          document.getElementById('filter4').style.display = 'none';
+          
+        }
+    }
+    function full(){
+      document.getElementById("bangle").setAttribute("style","display:flex;flex-wrap: wrap;");
+      document.getElementById("chain").setAttribute("style","display:flex;flex-wrap: wrap;");
+
+    }
+    function bangles(){
+      document.getElementById("all").setAttribute("style","display:none;");
+      document.getElementById("chain").setAttribute("style","display:none;");
+      document.getElementById("bangle").setAttribute("style","display:flex;flex-wrap: wrap;");
+    }
+    function chain(){
+      document.getElementById("all").setAttribute("style","display:none;");
+      document.getElementById("chain").setAttribute("style","display:flex;flex-wrap: wrap;");
+      document.getElementById("bangle").setAttribute("style","display:none;");
+    }
+   
+    
+    
+    </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script type="text/javascript">
+     $('.addingcart').click(function (){
+      console.log("hello")
+     var cartid;
+     cartid = $(this).attr("pro-id");
+     console.log(cartid)
+     $.ajax({
+       type:"GET",
+       url:"/datacart/",
+       data:{
+            p_id :  cartid,
+       },
+       success: function(data)
+       {
+        alert(data)
+       }
+     })
+   })
+  </script>
+  </body>
+</html>
